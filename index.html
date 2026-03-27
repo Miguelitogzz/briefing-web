@@ -8,115 +8,81 @@
         :root {
             --color-principal: #e63946;
             --color-texto: #2b2d42;
-            --color-borde: #e0e0e0;
+            --color-gris: #f8f9fa;
         }
-
-        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: var(--color-texto); max-width: 650px; margin: 0 auto; padding: 40px 15px; background-color: #f8f9fa; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: var(--color-texto); max-width: 650px; margin: 0 auto; padding: 40px 15px; background-color: var(--color-gris); }
         .card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        
-        .header { text-align: center; margin-bottom: 40px; }
-        .header h1 { font-size: 24px; color: #111; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
+        .header { text-align: center; margin-bottom: 40px; border-bottom: 2px solid #eee; padding-bottom: 20px; }
+        .header h1 { font-size: 24px; margin: 0; text-transform: uppercase; color: #111; }
         .header p { color: #666; font-size: 14px; margin-top: 5px; }
-
         h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-top: 35px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
         label { display: block; margin: 20px 0 8px; font-weight: 600; font-size: 15px; }
-        
-        input[type="text"], input[type="email"], textarea, select { 
-            width: 100%; padding: 14px; border: 2px solid #f0f0f0; border-radius: 12px; box-sizing: border-box; font-size: 15px; background-color: #fafafa; font-family: inherit;
-        }
-
+        textarea, select { width: 100%; padding: 14px; border: 2px solid #f0f0f0; border-radius: 12px; box-sizing: border-box; font-size: 15px; background-color: #fafafa; font-family: inherit; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
-        .option { 
-            background: #fff; border: 2px solid #eee; padding: 15px; border-radius: 12px; 
-            display: flex; align-items: center; cursor: pointer; font-size: 13px; transition: 0.2s;
-        }
+        .option { background: #fff; border: 2px solid #eee; padding: 15px; border-radius: 12px; display: flex; align-items: center; cursor: pointer; font-size: 13px; transition: 0.2s; }
         .option:hover { border-color: var(--color-principal); background-color: #fff5f5; }
-        
         input[type="radio"], input[type="checkbox"] { margin-right: 10px; accent-color: var(--color-principal); transform: scale(1.1); }
-
-        button { 
-            width: 100%; background: #111; color: white; padding: 18px; border: none; border-radius: 12px; 
-            cursor: pointer; font-size: 16px; font-weight: bold; margin-top: 40px; text-transform: uppercase; transition: 0.3s;
-        }
+        button { width: 100%; background: #111; color: white; padding: 18px; border: none; border-radius: 12px; cursor: pointer; font-size: 16px; font-weight: bold; margin-top: 40px; text-transform: uppercase; transition: 0.3s; }
         button:hover { background: var(--color-principal); transform: translateY(-2px); }
-
         @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
 <div class="card">
     <div class="header">
         <h1>Briefing de Proyecto Web</h1>
-        <p>Completa los detalles para comenzar con el diseño</p>
+        <p>Define la visión de tu página para comenzar el desarrollo</p>
     </div>
 
     <form action="https://formspree.io/f/xbdpldow" method="POST">
         
         <section>
-            <h2>1. Información de la Empresa</h2>
-            <label>Nombre de la Empresa / Marca</label>
-            <input type="text" name="empresa" required placeholder="Ej: Mi Negocio">
-            
-            <label>Correo Electrónico de Contacto</label>
-            <input type="email" name="_replyto" required placeholder="correo@empresa.com">
-        </section>
-
-        <section>
-            <h2>2. Logotipo e Identidad</h2>
+            <h2>1. Logotipo e Identidad</h2>
             <label>¿Cuentan con logotipo?</label>
             <div class="grid">
                 <label class="option"><input type="radio" name="tiene_logo" value="si"> Sí, tenemos logo</label>
-                <label class="option"><input type="radio" name="tiene_logo" value="no"> No, necesito diseño de logo</label>
+                <label class="option"><input type="radio" name="tiene_logo" value="no"> No, necesito diseño</label>
             </div>
-
-            <label>¿En qué formato lo tienen? (Si marcaron que sí)</label>
+            <label>¿En qué formato lo tienen?</label>
             <select name="formato_logo">
-                <option value="no_aplica">-- Selecciona una opción --</option>
-                <option value="vector">Vector / Editable (AI, PDF, SVG, EPS)</option>
-                <option value="png_sin_fondo">Imagen sin fondo (PNG)</option>
-                <option value="foto_jpg">Foto con fondo (JPG)</option>
-                <option value="no_se">No estoy seguro / Solo tengo el de Instagram</option>
+                <option value="desconocido">No estoy seguro</option>
+                <option value="vector">Editable (AI, PDF, SVG)</option>
+                <option value="png">Imagen sin fondo (PNG)</option>
+                <option value="jpg">Foto con fondo (JPG)</option>
             </select>
         </section>
 
         <section>
-            <h2>3. Estilo Visual Deseado</h2>
-            <label>¿Cómo visualizas el diseño de la página?</label>
+            <h2>2. Imagen y Estilo Visual</h2>
+            <label>¿Cómo visualizas el diseño?</label>
             <div class="grid">
-                <label class="option"><input type="radio" name="vibe" value="full_color"> Explosión de colores y texturas</label>
-                <label class="option"><input type="radio" name="vibe" value="limpio_fresco"> Estilo limpio, blanco y fresco</label>
-                <label class="option"><input type="radio" name="vibe" value="antojo_puro"> Enfoque total en fotos de productos</label>
-                <label class="option"><input type="radio" name="vibe" value="minimalista"> Minimalista y elegante</label>
+                <label class="option"><input type="radio" name="estilo" value="color"> Explosión de colores</label>
+                <label class="option"><input type="radio" name="estilo" value="fresco"> Estilo limpio y fresco</label>
+                <label class="option"><input type="radio" name="estilo" value="fotos"> Enfoque total en fotos</label>
+                <label class="option"><input type="radio" name="estilo" value="minimal"> Minimalista elegante</label>
             </div>
+            <label>Escribe con qué colores se define la empresa</label>
+            <textarea name="colores_escribir" rows="3" required placeholder="Ej: Rojo fresa, mucho blanco, detalles en madera..."></textarea>
         </section>
 
         <section>
-            <h2>4. Colores y Personalidad</h2>
-            <label>Describe los colores que definen a la marca</label>
-            <textarea name="colores" rows="3" required placeholder="Ej: Tonos rojos, detalles en verde menta, fondos claros..."></textarea>
-        </section>
-
-        <section>
-            <h2>5. ¿Qué secciones debe incluir la web?</h2>
+            <h2>3. ¿Qué secciones debe incluir la web?</h2>
             <div class="grid">
                 <label class="option"><input type="checkbox" name="seccion" value="inicio"> Banner de Inicio</label>
-                <label class="option"><input type="checkbox" name="seccion" value="menu"> Menú Digital / Carta</label>
+                <label class="option"><input type="checkbox" name="seccion" value="menu"> Menú Digital</label>
                 <label class="option"><input type="checkbox" name="seccion" value="galeria"> Galería de Fotos</label>
-                <label class="option"><input type="checkbox" name="seccion" value="nosotros"> Historia / Nosotros</label>
-                <label class="option"><input type="checkbox" name="seccion" value="ubicacion"> Mapa (Google Maps)</label>
-                <label class="option"><input type="checkbox" name="seccion" value="whatsapp"> Botón de WhatsApp</label>
-                <label class="option"><input type="checkbox" name="seccion" value="social"> Enlaces a Redes</label>
-                <label class="option"><input type="checkbox" name="seccion" value="promos"> Sección Promos</label>
-                <label class="option"><input type="checkbox" name="seccion" value="preguntas"> Preguntas Frecuentes</label>
-                <label class="option"><input type="checkbox" name="seccion" value="horarios"> Horarios</label>
+                <label class="option"><input type="checkbox" name="seccion" value="nosotros"> Nuestra Historia</label>
+                <label class="option"><input type="checkbox" name="seccion" value="ubicacion"> Mapa Google Maps</label>
+                <label class="option"><input type="checkbox" name="seccion" value="whatsapp"> Botón WhatsApp</label>
+                <label class="option"><input type="checkbox" name="seccion" value="redes"> Enlaces Redes Sociales</label>
+                <label class="option"><input type="checkbox" name="seccion" value="promos"> Sección de Promos</label>
+                <label class="option"><input type="checkbox" name="seccion" value="horarios"> Horarios de Atención</label>
             </div>
         </section>
 
-        <button type="submit">Enviar al Desarrollador</button>
+        <button type="submit">Enviar Briefing</button>
     </form>
 </div>
-
 </body>
 </html>
